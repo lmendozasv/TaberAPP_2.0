@@ -13,9 +13,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+
+import java.util.HashMap;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    private SliderLayout mDemoSlider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +46,41 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        mDemoSlider = (SliderLayout)this.findViewById(R.id.slider);
+        HashMap<String,Integer> file_maps = new HashMap<String, Integer>();
+
+
+
+        file_maps.put("Albergue infantil",R.drawable.albergueinfantil);
+        file_maps.put("Ministerio Bethesda",R.drawable.bethesda);
+        file_maps.put("Culto Familias en victoria", R.drawable.familiasenvictoria);
+        file_maps.put("Podcast Pastor Toby Jr.", R.drawable.podcastjr);
+
+
+
+        for(String name : file_maps.keySet()){
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(file_maps.get(name))
+                    .setScaleType(BaseSliderView.ScaleType.FitCenterCrop)
+            ;
+
+            //add your extra information
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra", name);
+
+            mDemoSlider.addSlider(textSliderView);
+
+
+//            mDemoSlider3.addSlider(textSliderView);
+//            mDemoSlider4.addSlider(textSliderView);
+        }
+
     }
 
     @Override
