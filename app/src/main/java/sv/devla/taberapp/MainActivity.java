@@ -1,9 +1,6 @@
 package sv.devla.taberapp;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -68,7 +65,8 @@ public class MainActivity extends AppCompatActivity
                     .putString("extra", name);
 
             mDemoSlider.addSlider(textSliderView);
-
+            mDemoSlider.setPresetTransformer(SliderLayout.Transformer.Accordion);
+            mDemoSlider.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
 
 //            mDemoSlider3.addSlider(textSliderView);
 //            mDemoSlider4.addSlider(textSliderView);
