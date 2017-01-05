@@ -1,5 +1,6 @@
 package sv.devla.taberapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -9,12 +10,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
 import java.util.HashMap;
+
+import sv.devla.taberapp.Blog.BlogMainActivity;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -71,6 +77,19 @@ public class MainActivity extends AppCompatActivity
 //            mDemoSlider3.addSlider(textSliderView);
 //            mDemoSlider4.addSlider(textSliderView);
         }
+
+        RelativeLayout button = (RelativeLayout) findViewById(R.id.fragment_left_menu_login);
+
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            //On click function
+            public void onClick(View view) {
+                //Create the intent to start another activity
+                Intent intent = new Intent(view.getContext(), BlogMainActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 

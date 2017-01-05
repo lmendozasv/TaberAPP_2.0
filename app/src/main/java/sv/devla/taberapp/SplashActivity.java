@@ -13,6 +13,8 @@
     import java.util.ArrayList;
     import java.util.List;
 
+    import sv.devla.taberapp.Blog.BlogMainActivity;
+
 
     public class SplashActivity extends Activity {
 

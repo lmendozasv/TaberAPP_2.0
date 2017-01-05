@@ -8,8 +8,8 @@
     android:background="@drawable/gradient_back"
     android:id="@+id/root"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="sv.devla.gupper.MainActivity"
-    tools:showIn="@layout/app_bar_main"
+    tools:context=".Blog.BlogMainActivity"
+    tools:showIn="@layout/blog_app_bar_main"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     >
 
@@ -22,74 +22,7 @@
         android:visibility="invisible"
         android:textAppearance="?android:attr/textAppearanceMedium"
         />
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="#e6045FB4"
-        android:id="@+id/barrabusqueda"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        >
-        <sv.devla.gupper.CustomAutoCompleteView
-            android:layout_width="fill_parent"
-            android:layout_height="40dip"
-            android:padding="5dip"
-            android:layout_marginTop="10dip"
-            android:layout_marginLeft="10dip"
-            android:layout_marginRight="10dip"
-            android:hint="¿Qué es lo que buscas?"
-            android:paddingStart="50dip"
-            android:singleLine="true"
-            android:paddingEnd="35dip"
-            android:completionThreshold="1"
-            android:nextFocusUp="@+id/etautobusqueda"
-            android:nextFocusLeft="@+id/etautobusqueda"
 
-
-            android:background="@drawable/rounded"
-            android:layout_marginBottom="6dip"
-            android:id="@+id/etautobusqueda" />
-
-        <ImageButton
-            android:id="@+id/buttone1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-
-            android:background="@android:color/transparent"
-            android:text="Button"
-
-            android:scaleType="fitCenter"
-
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="5dip"
-            android:layout_marginRight="5dip"
-            android:layout_alignBottom="@+id/buttone12"
-            android:layout_alignTop="@+id/buttone12" />
-
-
-        <ImageButton
-            android:id="@+id/buttone12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_search"
-
-            android:background="@android:color/transparent"
-            android:text="Button"
-            android:layout_alignTop="@+id/etautobusqueda"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-
-            android:layout_marginRight="5dip"
-            android:layout_marginTop="5dip"
-            android:layout_marginBottom="5dip"
-
-            android:layout_marginLeft="15dip"
-
-            android:layout_alignBottom="@+id/etautobusqueda"
-            android:layout_centerVertical="true"
-            android:layout_alignParentStart="true" />
-    </RelativeLayout>
 
     <View android:id="@+id/separator"
         android:background="#01579B"
@@ -126,33 +59,21 @@
         android:layout_below="@+id/barrabusqueda"
         />
 
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_home_footer"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
 
-        android:layout_alignParentEnd="true">
-
-    </com.google.android.gms.ads.AdView>
 
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="300dip"
+        android:layout_height="500dip"
         android:layout_below="@+id/sepasratossr"
         android:layout_marginTop="0dp"
         android:layout_alignParentRight="true"
         android:id="@+id/scrollView"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/adView">
+        >
 
-        <RelativeLayout
+        '<RelativeLayout
             android:layout_width="match_parent"
             android:id="@+id/relmain"
             android:layout_height="match_parent"
@@ -176,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="PRODUCTOS"
+                android:text="ARTÍCULOS"
                 android:background="#80000000"
                 android:gravity="center_vertical"
                 android:paddingLeft="15dip"
@@ -194,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="PRECIOS"
+                android:text="LIBROS"
                 android:background="#80000000"
                 android:layout_marginTop="5dip"
 
@@ -223,111 +144,26 @@
                 android:layout_marginBottom="5dip"
                 android:layout_height="match_parent">
 
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/my_recycler_view_books"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foregroundGravity="center"
+                    android:layout_marginTop="5dip"
+                    android:background="#800B3861"
 
-                <Button
-                    android:text="REPORTAR PRECIOS"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dip"
-                    android:layout_marginTop="0dip"
-                    android:id="@+id/button2"
-                    android:layout_below="@+id/textView7"
+                    android:paddingLeft="0dip"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
-                    android:layout_toStartOf="@+id/button3"
-                    android:layout_toLeftOf="@+id/button3"
-                    android:elevation="24dp" />
-
-                <Button
-                    android:text="VALIDAR REPORTES"
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dip"
-                    android:id="@+id/button3"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toRightOf="@+id/textView7"
-                    android:layout_toEndOf="@+id/textView7" />
-
-                <TextView
-                    android:text="."
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="2dip"
-                    android:id="@+id/textView7"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
-
-
-
-
-
+                    />
 
 
             </RelativeLayout>
             <!-- FIN -->
 
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-
-                android:layout_below="@+id/actionsrlt"
-                android:layout_height="match_parent">
 
 
-                <Button
-                    android:text="INVITAR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dip"
-                    android:id="@+id/button3a"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentEnd="true"
-                    android:layout_toRightOf="@+id/textView7a"
-                    android:layout_toEndOf="@+id/textView7a" />
-
-                <TextView
-                    android:text="."
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="2dip"
-                    android:id="@+id/textView7a"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerHorizontal="true" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="CANJEAR MONEDAS"
-                    android:background="#80000000"
-
-                    android:paddingLeft="15dip"
-                    android:id="@+id/textView5h"
-
-                    android:paddingBottom="5dip"
-                    android:paddingTop="5dip"
-
-                    android:textColor="#ffffff"
-
-                    android:gravity="center_vertical"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true" />
-
-                <Button
-                    android:text="CANJEAR"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dip"
-                    android:id="@+id/button2a"
-                    android:elevation="24dp"
-                    android:layout_below="@+id/textView5h"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_toLeftOf="@+id/textView7a"
-                    android:layout_toStartOf="@+id/textView7a" />
-
-
-            </RelativeLayout>
 
         </RelativeLayout>
 

@@ -23,6 +23,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -35,7 +36,11 @@ import com.google.android.gms.ads.AdView;
 
 import java.util.ArrayList;
 
+import sv.devla.taberapp.Blog.BlogUtils.CustomAutoCompleteView;
+import sv.devla.taberapp.Blog.BlogUtils.RecyclerViewDataAdapter;
 import sv.devla.taberapp.Blog.BlogUtils.SectionDataModel;
+import sv.devla.taberapp.Blog.BlogUtils.SingleItemModel;
+import sv.devla.taberapp.R;
 import tyrantgit.explosionfield.ExplosionField;
 
 public class BlogMainActivity extends AppCompatActivity
@@ -47,18 +52,21 @@ public class BlogMainActivity extends AppCompatActivity
 
 
     ArrayList<SectionDataModel> allSampleData;
+    ArrayList<SectionDataModel> allSampleDataBooks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.blog_activity_main);
+        setContentView(R.layout.blog_activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        toolbar.setTitle("");
+        toolbar.setTitle("aslkjdhaskj");
+        toolbar.setTitle(Html.fromHtml("<font color='#ff0000'>ActionBarTitle </font>"));
         /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
-            @Override
+           l @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
@@ -85,7 +93,7 @@ public class BlogMainActivity extends AppCompatActivity
                 super.onDrawerOpened(drawerView);
                 try {
                     ImageView imageView = (ImageView) findViewById(R.id.imageViewHeader);
-                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_bk4);
+                    Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.ic_bk7);
                     Bitmap blurredBitmap = blur(bitmap);
                     imageView.setImageBitmap(blurredBitmap);
                 }
@@ -104,7 +112,7 @@ public class BlogMainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-        getSupportActionBar().setTitle("");
+        getSupportActionBar().setTitle("Blog del pastor Jr.");
 
 
 
@@ -116,14 +124,9 @@ public class BlogMainActivity extends AppCompatActivity
                 Secure.ANDROID_ID);
 
 
-        mAdView = (AdView) findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder()
-                .addTestDevice("CD9BF0A478AF16984B67A0EC13B45623")
-                .build();
-        mAdView.loadAd(adRequest);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setLogo(R.drawable.ic_location);
+        actionBar.setLogo(R.drawable.logo);
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(false);
 
@@ -143,71 +146,40 @@ public class BlogMainActivity extends AppCompatActivity
 
 
         allSampleData = new ArrayList<SectionDataModel>();
+        allSampleDataBooks = new ArrayList<SectionDataModel>();
 
         createDummyData();
+        createDummyDataBooks();
 
         RecyclerView my_recycler_view = (RecyclerView) findViewById(R.id.my_recycler_view);
 
+        RecyclerView my_recycler_view_books = (RecyclerView) findViewById(R.id.my_recycler_view_books);
+
         my_recycler_view.setHasFixedSize(true);
+        my_recycler_view_books.setHasFixedSize(true);
 
         RecyclerViewDataAdapter adapter = new RecyclerViewDataAdapter(this, allSampleData);
 
+        RecyclerViewDataAdapter adapter_books = new RecyclerViewDataAdapter(this, allSampleDataBooks);
+
         my_recycler_view.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        my_recycler_view_books.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 
         my_recycler_view.setAdapter(adapter);
 
-        final CustomAutoCompleteView etd = (CustomAutoCompleteView) findViewById(R.id.etautobusqueda);
+        my_recycler_view_books.setAdapter(adapter_books);
 
 
 
-        etd.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                Log.i("click", "onMtouch");
 
 
 
-        MainActivity.this.onClick(v);
-                //Intent i = new Intent(MainActivity.this, SearchActivity.class);
-                 //   startActivity(i);
-
-              //  finish();
-
-
-                //etd.setFocusable(true);
-                //etd.requestFocus();
-                //etd.setSelection(etd.getText().length());
-
-                return false;
-            }
-        });
-
+this.setTitle("El Blog del pastor Jr.");
     }
 
 
-
     public void onClick(View view) {
-        //View imageView = findViewById(R.id.imageView);
-        View textView = findViewById(R.id.etautobusqueda);
-        //View button = findViewById(R.id.button);
 
-        Intent intent = new Intent(this, SearchActivity.class);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            textView.setTransitionName(getString(R.string.activity_mixed_trans));
-//            button.setTransitionName(getString(R.string.activity_mixed_trans));
-
-  //          Pair<View, String> pair1 = Pair.create(imageView, imageView.getTransitionName());
-            Pair<View, String> pair2 = Pair.create(textView, textView.getTransitionName());
-    //        Pair<View, String> pair3 = Pair.create(button, button.getTransitionName());
-            ActivityOptionsCompat options = ActivityOptionsCompat.
-                    makeSceneTransitionAnimation(this, pair2);
-            startActivity(intent, options.toBundle());
-        }
-        else {
-            startActivity(intent);
-        }
     }
 
     public Bitmap makeTransparent(Bitmap bitmap, int opacity) {
@@ -308,24 +280,16 @@ public class BlogMainActivity extends AppCompatActivity
 
             ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
 
-            singleItem.add(new SingleItemModel("ACEITES" , "URL " ));
-            singleItem.add(new SingleItemModel("HUEVOS Y CARNES" , "URL " ));
-            singleItem.add(new SingleItemModel("PAN" , "URL " ));
-            singleItem.add(new SingleItemModel("FRUTAS" , "URL " ));
-            singleItem.add(new SingleItemModel("GRANOS BÁSICOS" , "URL " ));
-
-            singleItem.add(new SingleItemModel("HARINAS" , "URL " ));
-            singleItem.add(new SingleItemModel("LÁCTEOS" , "URL " ));
-            singleItem.add(new SingleItemModel("VERDURAS" , "URL " ));
-            singleItem.add(new SingleItemModel("PASTAS" , "URL " ));
-            singleItem.add(new SingleItemModel("MARGARINAS Y MANTECAS" , "URL " ));
-
-
-            singleItem.add(new SingleItemModel("ATÚN" , "URL " ));
-            singleItem.add(new SingleItemModel("SARDINAS" , "URL " ));
-            singleItem.add(new SingleItemModel("BEBIDAS" , "URL " ));
-            singleItem.add(new SingleItemModel("SALSAS" , "URL " ));
-            singleItem.add(new SingleItemModel("LIMPIEZA Y ASEO PERSONAL" , "URL " ));
+            singleItem.add(new SingleItemModel("Año nuevo, ¿Vida vieja?" , "URL " ));
+            singleItem.add(new SingleItemModel("No se trata de ti" , "URL " ));
+            singleItem.add(new SingleItemModel("Un consejo para el consejo" , "URL " ));
+            singleItem.add(new SingleItemModel("Celebrarán el día nacional de la Biblia en El Salvador" , "URL " ));
+            singleItem.add(new SingleItemModel("La muerte de un dictador" , "URL " ));
+            singleItem.add(new SingleItemModel("Cuando el amor se va" , "URL " ));
+            singleItem.add(new SingleItemModel("Justicia sin fronteras" , "URL " ));
+            singleItem.add(new SingleItemModel("El negocio del odio" , "URL " ));
+            singleItem.add(new SingleItemModel("Hablemos bien de El Salvador" , "URL " ));
+            singleItem.add(new SingleItemModel("Los cuatro pilares de la pobreza" , "URL " ));
 
             //for (int j = 0; j <= 5; j++) {
             //    singleItem.add(new SingleItemModel("Item " , "URL " ));
@@ -337,4 +301,33 @@ public class BlogMainActivity extends AppCompatActivity
 
         }
     }
+
+
+
+    public void createDummyDataBooks() {
+        for (int i = 1; i <= 1; i++) {
+
+            SectionDataModel dm = new SectionDataModel();
+
+            dm.setHeaderTitle("Section " + i);
+
+            ArrayList<SingleItemModel> singleItem = new ArrayList<SingleItemModel>();
+
+            singleItem.add(new SingleItemModel("Gotitas de fe 4.0" , "URL " ));
+            singleItem.add(new SingleItemModel("Gotitas de fe 3.0" , "URL " ));
+            singleItem.add(new SingleItemModel("Gotitas de fe 2.0" , "URL " ));
+            singleItem.add(new SingleItemModel("Gotitas de fe 1.0" , "URL " ));
+            singleItem.add(new SingleItemModel("Auxilio!, soy casado" , "URL " ));
+
+            //for (int j = 0; j <= 5; j++) {
+            //    singleItem.add(new SingleItemModel("Item " , "URL " ));
+            //}
+
+            dm.setAllItemsInSection(singleItem);
+            allSampleDataBooks.add(dm);
+
+        }
+    }
+
+
 }

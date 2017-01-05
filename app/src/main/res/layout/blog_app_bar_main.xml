@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="sv.devla.gupper.MainActivity">
+    tools:context="sv.devla.taberapp.Blog.BlogMainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -39,37 +39,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
-                android:gravity="right"
+                android:gravity="left"
                 android:textSize="18dp">
 
                 <ImageView
-                    android:layout_width="50dip"
+                    android:layout_width="40dip"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dip"
                     android:layout_marginBottom="10dip"
-                    android:layout_gravity="right"
+                    android:layout_gravity="left"
                     android:id="@+id/textView2h"
-                    android:src="@drawable/ic_coins"
+                    android:src="@drawable/logo"
                     android:layout_above="@+id/imgLogo"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceSmall"
-                    android:text="10 MONEDAS"
-                    fontPath="fonts/hm.ttf"
-                    android:gravity="center_vertical"
-                    android:layout_gravity="end"
-                    android:id="@+id/textView2"
-                    android:textSize="15dp"
-                    android:textStyle="bold"
-                    android:textColor="#ffffff"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentBottom="true"
-                    android:layout_toLeftOf="@+id/textView2h"
-                    android:layout_toStartOf="@+id/textView2h" />
 
             </RelativeLayout>
 
@@ -77,7 +61,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include layout="@layout/blog_content_main" />
 
 
 
