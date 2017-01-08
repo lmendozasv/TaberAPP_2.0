@@ -73,12 +73,58 @@
         android:layout_alignParentEnd="true"
         >
 
-        '<RelativeLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:id="@+id/relmain"
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/actionsrlt"
+                android:layout_alignParentStart="true"
+                android:id="@+id/sjj"
+                android:layout_marginTop="0dp">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="MÁS"
+                    android:background="#80000000"
+
+                    android:paddingLeft="15dip"
+                    android:id="@+id/textView5"
+
+
+                    android:paddingTop="5dip"
+
+                    android:textColor="#ffffff"
+
+                    android:gravity="center_vertical"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/my_recycler_view_newsandmore"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foregroundGravity="center"
+                    android:background="#800B3861"
+                    android:layout_marginTop="5dip"
+                    android:paddingLeft="0dip"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/textView5">
+
+                </android.support.v7.widget.RecyclerView>
+
+
+            </RelativeLayout>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/my_recycler_view"
@@ -97,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="ARTÍCULOS"
+                android:text="BLOG"
                 android:background="#80000000"
                 android:gravity="center_vertical"
                 android:paddingLeft="15dip"
@@ -111,6 +157,17 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
+        <!-- TEST -->
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/actionsrlt"
+
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/my_recycler_view">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -122,7 +179,7 @@
                 android:paddingLeft="15dip"
                 android:id="@+id/textView5"
 
-                android:paddingBottom="5dip"
+
                 android:paddingTop="5dip"
 
                 android:textColor="#ffffff"
@@ -132,40 +189,26 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true" />
 
-            <!-- TEST -->
-
-
-            <RelativeLayout
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/my_recycler_view_books"
                 android:layout_width="match_parent"
-                android:layout_below="@+id/textView5"
-                android:id="@+id/actionsrlt"
-
+                android:layout_height="wrap_content"
+                android:foregroundGravity="center"
+                android:background="#800B3861"
                 android:layout_marginTop="5dip"
-                android:layout_marginBottom="5dip"
-                android:layout_height="match_parent">
+                android:paddingLeft="0dip"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView5" >
 
-                <android.support.v7.widget.RecyclerView
-                    android:id="@+id/my_recycler_view_books"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:foregroundGravity="center"
-                    android:layout_marginTop="5dip"
-                    android:background="#800B3861"
-
-                    android:paddingLeft="0dip"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    />
-
-
-            </RelativeLayout>
-            <!-- FIN -->
-
-
-
+            </android.support.v7.widget.RecyclerView>
 
 
         </RelativeLayout>
+        <!-- FIN -->
+
+
+    </RelativeLayout>
 
 
 

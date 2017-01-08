@@ -5,7 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
-import android.provider.Settings.Secure;
+import android.provider.Settings;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
@@ -36,7 +36,7 @@ import sv.devla.taberapp.Blog.BlogUtils.SingleItemModel;
 import sv.devla.taberapp.R;
 import tyrantgit.explosionfield.ExplosionField;
 
-public class BlogMainActivity extends AppCompatActivity
+public class BlogMonthActivity  extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final float BLUR_RADIUS = 25f;
 
@@ -52,7 +52,7 @@ public class BlogMainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.blog_activity_main);
-        setContentView(R.layout.blog_activity_main);
+        setContentView(R.layout.activity_blog_month);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         toolbar.setTitle("aslkjdhaskj");
@@ -114,8 +114,8 @@ public class BlogMainActivity extends AppCompatActivity
 
 
 
-        String android_id = Secure.getString(this.getContentResolver(),
-                Secure.ANDROID_ID);
+        String android_id = Settings.Secure.getString(this.getContentResolver(),
+                Settings.Secure.ANDROID_ID);
 
 
 
@@ -175,7 +175,7 @@ public class BlogMainActivity extends AppCompatActivity
 
 
 
-this.setTitle("El Blog del pastor Jr.");
+        this.setTitle("El Blog del pastor Jr.");
     }
 
 

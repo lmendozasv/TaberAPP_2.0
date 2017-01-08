@@ -1,6 +1,7 @@
 package sv.devla.taberapp.Blog.BlogUtils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import sv.devla.taberapp.Blog.BlogMonthActivity;
 import sv.devla.taberapp.R;
 
 public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListDataAdapter.SingleItemRowHolder> {
@@ -73,8 +75,15 @@ public class SectionListDataAdapter extends RecyclerView.Adapter<SectionListData
                 @Override
                 public void onClick(View v) {
 
+                String seccion = "";
+                seccion=tvTitle.getText().toString();
 
-                    Toast.makeText(v.getContext(), tvTitle.getText(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), tvTitle.getText()+ "", Toast.LENGTH_SHORT).show();
+                    if(seccion.equals("ENERO 2017")){
+                        Intent main = new Intent(v.getContext(), BlogMonthActivity.class);
+                        v.getContext().startActivity(main);
+                    }
+
 
                 }
             });

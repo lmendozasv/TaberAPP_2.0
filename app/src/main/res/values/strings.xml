@@ -25,5 +25,6 @@
 
     <string name="action_sign_in_short">Iniciar sesión</string>
     <string name="action_sign_in">Iniciar sesión</string>
+    <string name="title_activity_blog_month">BlogMonthActivity</string>
 
 </resources>

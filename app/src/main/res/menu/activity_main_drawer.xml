@@ -4,32 +4,48 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:icon="@drawable/ic_perfil"
+            android:title="Perfil" />
         <item
             android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:icon="@drawable/ic_comunidad"
+            android:title="Comunidad" />
         <item
             android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:icon="@drawable/ic_biblia"
+            android:title="Proverbio del día" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:icon="@drawable/ic_proverbio"
+            android:title="Lectura bíblca" />
+
+        <item
+            android:id="@+id/nav_manageu"
+            android:icon="@drawable/ic_tratado"
+            android:title="Compartir un tratado" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="Servicios">
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:icon="@drawable/ic_ubicacion"
+                android:title="Ubicación de filiales" />
             <item
                 android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:icon="@drawable/ic_consejeria"
+                android:title="Consejería" />
+
+            <item
+                android:id="@+id/nav_sendg"
+                android:icon="@drawable/ic_soynuevo"
+                android:title="Soy nuevo" />
+
+            <item
+                android:id="@+id/nav_sendg"
+                android:icon="@drawable/ic_consejeria"
+                android:title="Información" />
+
         </menu>
     </item>
 
